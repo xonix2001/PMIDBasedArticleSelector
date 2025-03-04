@@ -1,8 +1,6 @@
 import openai
 import requests
 
-
-
 def translator(text):
     """
     使用 OpenAI 或 DeepL API 进行翻译。
