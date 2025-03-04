@@ -97,7 +97,3 @@
    ```bash
    python extend.py
    ```
-
----
-
-将以上内容复制到你的 GitHub README 文件中，读者可以直接复制各个代码块进行使用。
