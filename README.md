@@ -1,6 +1,55 @@
-# PMIDBasedArticleSelector Usage Guide
+# PMIDBasedArticleSelector 使用指南
+## 中文说明
+
+1. **下载或克隆代码：**  
+   下载项目或通过 Git 克隆代码仓库。
+   ```bash
+   git clone https://github.com/xonix2001/PMIDBasedArticleSelector.git
+   ```
+
+2. **配置环境：**  
+   根据 `requirements.txt` 中的依赖，安装所需的 Python 包。
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **配置翻译器：**  
+   打开 `translator.py`，填写你的 OpenAI API 密钥及基础配置。  
+   *如果没有 API 密钥，请访问 [ChatAnywhere 商店](https://api.chatanywhere.tech/#/shop) 购买。*
+   ```python
+   # translator.py 示例:
+   openai.api_key = "#your key"
+   openai.api_base = "#base"
+   ```
+
+4. **准备 PubMed API 账户：**  
+   确保你拥有有效的 PubMed API 账户。
+
+5. **填写账户信息：**  
+   打开 `extend.py`，输入你的账户相关信息。
+   ```python
+   # extend.py 示例:
+   email = "#enter here"
+   api_key = "#enter here"
+   ```
+
+6. **设置输入输出路径：**  
+   指定包含 PMID 列表的 TXT 文件的输入路径，以及生成结果 Excel 文件的输出路径。
+   ```python
+   # extend.py 示例:
+   processor_extended.run("#enter here")  # 输入文件 (.txt) 路径
+   ```
+
+7. **运行程序：**  
+   执行 `extend.py` 开始处理。
+   ```bash
+   python extend.py
+   ```
+   
+---
 
 ## English Instructions
+**PMIDBasedArticleSelector Usage Guide** 
 
 1. **Download or Git Clone:**  
    Download the project or clone it from the repository.
@@ -47,56 +96,6 @@
    python extend.py
    ```
 
----
-
-## 中文说明
-
-**PMIDBasedArticleSelector 使用指南**
-
-1. **下载或克隆代码：**  
-   下载项目或通过 Git 克隆代码仓库。
-   ```bash
-   git clone https://github.com/xonix2001/PMIDBasedArticleSelector.git
-   ```
-
-2. **配置环境：**  
-   根据 `requirements.txt` 中的依赖，安装所需的 Python 包。
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **配置翻译器：**  
-   打开 `translator.py`，填写你的 OpenAI API 密钥及基础配置。  
-   *如果没有 API 密钥，请访问 [ChatAnywhere 商店](https://api.chatanywhere.tech/#/shop) 购买。*
-   ```python
-   # translator.py 示例:
-   openai.api_key = "#your key"
-   openai.api_base = "#base"
-   ```
-
-4. **准备 PubMed API 账户：**  
-   确保你拥有有效的 PubMed API 账户。
-
-5. **填写账户信息：**  
-   打开 `extend.py`，输入你的账户相关信息。
-   ```python
-   # extend.py 示例:
-   email = "#enter here"
-   api_key = "#enter here"
-   ```
-
-6. **设置输入输出路径：**  
-   指定包含 PMID 列表的 TXT 文件的输入路径，以及生成结果 Excel 文件的输出路径。
-   ```python
-   # extend.py 示例:
-   processor_extended.run("#enter here")  # 输入文件 (.txt) 路径
-   ```
-
-7. **运行程序：**  
-   执行 `extend.py` 开始处理。
-   ```bash
-   python extend.py
-   ```
 ---
 ## 辅助脚本
 
