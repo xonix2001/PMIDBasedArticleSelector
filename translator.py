@@ -3,8 +3,8 @@ def translator(text):
     """
     使用 OpenAI API 进行翻译，将英文文本翻译为中文。
     """
-    openai.api_key = 'sk-vVcEEI2HMW4tPipfSOwM6lbW1SRhmpda5BToasYvgPuvn16h'
-    openai.api_base = 'https://api.chatanywhere.com.cn/v1'
+    openai.api_key = ''#your key
+    openai.api_base = ''#base
     try:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-ca",

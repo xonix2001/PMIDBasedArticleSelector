@@ -134,7 +134,8 @@ class PubMedDataProcessorBase:
         
 
 if __name__ == "__main__":
-    email = "263026560@qq.com"
-    api_key = "c440fd575a5e0b26840b67cf3280c9b9bf08"
+    #email and api_key for Entrez
+    email = ""
+    api_key = ""
     processor = PubMedDataProcessorBase(email, api_key)
-    processor.run(input_file_path="D:\python code\塔吉科研\8\pmids_list\epilepsy [Title Abstract] AND neuroscience [Title .txt", output_file_path="D:\\python code\\塔吉科研\\8\\pmids.xlsx")
+    processor.run(input_file_path="", output_file_path="")#input(.txt) and output(.xlsx) path

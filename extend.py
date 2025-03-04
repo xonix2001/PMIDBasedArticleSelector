@@ -94,7 +94,7 @@ class PubMedDataProcessorExtended(PubMedDataProcessorBase):
 
     
 if __name__ == "__main__":
-    email = "263026560@qq.com"
-    api_key = "c440fd575a5e0b26840b67cf3280c9b9bf08"
+    email = ""
+    api_key = ""
     processor_extended = PubMedDataProcessorExtended(email, api_key)
-    processor_extended.run('D:\python code\塔吉科研\8\pmids_list\epilepsy [Title Abstract] AND neuroscience [Title .txt')
+    processor_extended.run('')#(input(.txt) path)
