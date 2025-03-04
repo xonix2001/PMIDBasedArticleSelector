@@ -98,38 +98,21 @@
    python extend.py
    ```
 ---
-下面是优化后的中英文说明，便于阅读和复制，可直接放入 README 文件中：
-
----
-
 ## 辅助脚本
 
 ### 1. seach_strategy_generator.py
-该脚本根据自然语言描述生成 PubMed 检索词。
-
-*说明：输入自然语言描述，程序将自动生成对应的 PubMed 检索表达式。*
----
+输入自然语言描述，程序将自动生成对应的 PubMed 检索表达式
 
 ### 2. PMIDs_generator.py
-该脚本利用 PubMed API 根据生成的检索词检索并生成 PMID 序列，同时保存到指定的 TXT 文件中。  
+根据预先配置的检索词，该脚本将调用 PubMed API 获取符合条件的 PMID 列表，并将结果保存到指定路径的 TXT 文件中。  
 > **备注：** 你也可以在 PubMed 官网手动导出 PMID 序列，并以 TXT 文件形式使用。
-
-*说明：根据预先配置的检索词，该脚本将调用 PubMed API 获取符合条件的 PMID 列表，并将结果保存到指定路径的 TXT 文件中。*
-
 ---
 ## Supplementary Scripts
 
 ### 1. seach_strategy_generator.py
-This script generates PubMed search strategies based on natural language descriptions.
-
-*Description: Provide a natural language description as input, and the script will generate a corresponding PubMed search expression automatically.*
-
----
+Provide a natural language description as input, and the script will generate a corresponding PubMed search expression automatically.
 
 ### 2. PMIDs_generator.py
-This script uses the PubMed API to retrieve a sequence of PMIDs based on the generated search strategy and saves the results to a specified TXT file.  
+Based on the preconfigured search strategy, the script will call the PubMed API to fetch a list of PMIDs that meet the criteria and save the results to a TXT file at the specified location.  
 > **Note:** You can also manually export a PMID sequence from the PubMed website and use it as a TXT file.
-
-*Description: Based on the preconfigured search strategy, the script will call the PubMed API to fetch a list of PMIDs that meet the criteria and save the results to a TXT file at the specified location.*
-
 ---
