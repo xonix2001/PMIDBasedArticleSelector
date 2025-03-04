@@ -1,11 +1,26 @@
 import openai
+import requests
+
+
+
 def translator(text):
     """
-    使用 OpenAI API 进行翻译，将英文文本翻译为中文。
+    使用 OpenAI 或 DeepL API 进行翻译。
+    - [0]: 使用 DeepL API
+    - [1]: 使用 OpenAI API
     """
-    #If you don't have any key, try to buy one on 'https://api.chatanywhere.tech/#/shop'
-    openai.api_key = ''#your key
-    openai.api_base = ''#base
+    model=['deepl','openai'][1]
+    
+    if model == 'deepl':
+        return deepl_translate(text)
+    elif model == 'openai':
+        return openai_translate(text)
+
+def openai_translate(text):
+    """使用 OpenAI API 进行翻译"""
+    openai.api_key = ''  # 你的 OpenAI API Key
+    openai.api_base = ''  # 你的 OpenAI API Base URL
+    
     try:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-ca",
@@ -17,8 +32,25 @@ def translator(text):
             max_tokens=2048,
             timeout=30
         )
-        translated_text = response.choices[0].message['content'].strip()
+        return response.choices[0].message['content'].strip()
     except Exception as e:
         print(f"OpenAI 翻译错误: {e}")
-        translated_text = "Translation Error"
-    return translated_text
+        return "Translation Error"
+
+def deepl_translate(text):
+    """使用 DeepL API 进行翻译"""
+    deepl_api_key = ''  # 你的 DeepL API Key
+    url = "https://api-free.deepl.com/v2/translate"
+    params = {
+        "auth_key": deepl_api_key,
+        "text": text,
+        "target_lang": "ZH"
+    }
+    
+    try:
+        response = requests.post(url, data=params)
+        response_json = response.json()
+        return response_json["translations"][0]["text"]
+    except Exception as e:
+        print(f"DeepL 翻译错误: {e}")
+        return "Translation Error"
