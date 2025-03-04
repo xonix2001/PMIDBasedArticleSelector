@@ -1,4 +1,4 @@
-![image](logo.png)
+![image](logo1.png)
 # PMIDBasedArticleSelector 使用指南
 ## 中文说明
 
