@@ -3,6 +3,7 @@ def translator(text):
     """
     使用 OpenAI API 进行翻译，将英文文本翻译为中文。
     """
+    #If you don't have any key, try to buy one on 'https://api.chatanywhere.tech/#/shop'
     openai.api_key = ''#your key
     openai.api_base = ''#base
     try:
