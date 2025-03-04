@@ -1,3 +1,4 @@
+![image](logo.png)
 # PMIDBasedArticleSelector 使用指南
 ## 中文说明
 
@@ -45,7 +46,7 @@
    ```bash
    python extend.py
    ```
-   
+
 ---
 
 ## English Instructions
