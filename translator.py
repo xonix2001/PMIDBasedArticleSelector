@@ -6,6 +6,7 @@ def translator(text):
     使用 OpenAI 或 DeepL API 进行翻译。
     - [0]: 使用 DeepL API
     - [1]: 使用 OpenAI API
+    -ww
     """
     model=['deepl','openai'][1]
     
