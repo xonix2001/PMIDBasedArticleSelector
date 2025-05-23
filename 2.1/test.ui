@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>955</width>
+    <height>726</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PMID Based Article Selector</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QGroupBox {
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 15px;
+    color: #1d649c;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 0 10px;
+    color: #1d649c;
+    font-weight: bold;
+}
+QLabel {
+    font-family: &quot;微软雅黑&quot;;
+    color: black;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0">
+     <item>
+      <widget class="QGroupBox" name="groupBox_config">
+       <property name="title">
+        <string>全局配置</string>
+       </property>
+       <layout class="QFormLayout" name="formLayout_config">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_cfg_email">
+          <property name="text">
+           <string>PubMed 邮箱：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="lineEdit_cfg_email"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_cfg_pubmed_key">
+          <property name="text">
+           <string>PubMed API Key：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEdit_cfg_pubmed_key"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_cfg_trans_base">
+          <property name="text">
+           <string>翻译 API Base：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineEdit_cfg_trans_base"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_cfg_trans_key">
+          <property name="text">
+           <string>翻译 API Key：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="lineEdit_cfg_trans_key"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_cfg_trans_model">
+          <property name="text">
+           <string>翻译模型：</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QComboBox" name="comboBox_cfg_trans_model">
+          <item>
+           <property name="text">
+            <string>gpt-4o-mini</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>gpt-4</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>gpt-3.5-turbo</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="pushButton_save_config">
+          <property name="text">
+           <string>保存配置</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_3">
+       <property name="title">
+        <string>爬取文献基本信息</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>利用文献pmid从PubMed获取文献pmid、文献标题（中英文，由gpt翻译）、期刊全称和被引次数（由Crossref 提供）。</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>选择文件1</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="text">
+             <string>获取1</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>筛选高被引文献</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>从 &quot;ShortInfo_*.xlsx&quot; 文件中根据被引次数和/或目标期刊选择文献，最终输出结果为文献pmid。</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QPushButton" name="pushButton_4">
+            <property name="text">
+             <string>选择文件2</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="placeholderText">
+             <string>将显示选择文件路径</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_6">
+            <property name="text">
+             <string>获取2</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QCheckBox" name="checkBox">
+              <property name="text">
+               <string>被引次数百分比</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="spinBox"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QCheckBox" name="checkBox_2">
+              <property name="text">
+               <string>目标期刊</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_3">
+              <property name="placeholderText">
+               <string>请输入感兴趣的期刊全称</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="title">
+        <string>爬取文献摘要（中英文）及PubMed链接</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QPushButton" name="pushButton_7">
+            <property name="text">
+             <string>选择文件3</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_2">
+            <property name="placeholderText">
+             <string>将显示选择文件路径</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_8">
+            <property name="text">
+             <string>获取3</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="plainTextEdit">
+          <property name="placeholderText">
+           <string>将显示所有输出文件路径和日志</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_progress">
+       <item>
+        <widget class="QLabel" name="label_progress">
+         <property name="text">
+          <string>[0/0]</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_eta">
+         <property name="text">
+          <string>ETA: --:--</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

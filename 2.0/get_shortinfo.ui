@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>855</width>
+    <height>638</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PMID Based Article Selector</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QGroupBox {
+    font-family: &quot;微软雅黑&quot;; /* 设置字体 */
+    font-size: 15px; /* 设置字体大小 */
+    color: #1d649c; /* 设置字体颜色 */
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin; /* 标题相对于边框的位置 */
+    subcontrol-position:top left; /* 标题的位置，顶部居中 */
+    padding: 0 10px 0 10px; /* 标题的内边距 */
+    color: #1d649c; /* 可以为标题指定不同的颜色 */
+    font-weight: bold; /* 标题文字加粗 */
+}
+
+QLabel#label {
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 12px;
+    color: black; /* 设置文字颜色为黑色 */
+}
+QLabel#label_5 {
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 12px;
+    color: black; /* 设置文字颜色为黑色 */
+}
+QLabel#label_6{
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 12px;
+    color: black; /* 设置文字颜色为黑色 */
+}
+QLabel#label_2 {
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 10px;
+    color: black; /* 设置文字颜色为黑色 */
+}
+QLabel#label_3 {
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 10px;
+    color: black; /* 设置文字颜色为黑色 */
+}
+QLabel#label_4{
+    font-family: &quot;微软雅黑&quot;;
+    font-size: 10px;
+    color: black; /* 设置文字颜色为黑色 */
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_8">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <item>
+      <widget class="QGroupBox" name="groupBox_3">
+       <property name="title">
+        <string>爬取文献基本信息</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>利用文献pmid从PubMed获取文献pmid、文献标题（中英文，由gpt翻译）、期刊全称和被引次数（由Crossref 提供）。</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,1,6">
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>选择文件1</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="text">
+             <string>获取1</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>筛选高被引文献</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>从&quot;ShortInfo_*.xlsx&quot;文件中根据被引次数和/或目标期刊选择文献，最终输出结果为文献pmid。</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>1. 只选择被引次数百分比，输出结果为被引次数前百分之*的文献pmid;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>2. 只选择目标期刊，输出结果为目标期刊上的文献pmid;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>3. 既选择被引次数百分比，又选择目标期刊，输出结果为筛选被引次数基础上发表在目标期刊上的文献pmid;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,6,1">
+          <item>
+           <widget class="QPushButton" name="pushButton_4">
+            <property name="text">
+             <string>选择文件2</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="placeholderText">
+             <string>将显示选择文件路径</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_6">
+            <property name="text">
+             <string>获取2</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+            <item>
+             <widget class="QCheckBox" name="checkBox">
+              <property name="text">
+               <string>被引次数百分比</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="spinBox"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,2,2">
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_2">
+              <property name="text">
+               <string>目标期刊</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_3">
+              <property name="placeholderText">
+               <string>请输入感兴趣的期刊全称</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="title">
+        <string>爬取文献摘要（中英文）及PubMed链接</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>利用文献pmid从PubMed获取包括基本信息在内的摘要（中英文）及PubMed链接</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="1,6,1">
+            <item>
+             <widget class="QPushButton" name="pushButton_7">
+              <property name="text">
+               <string>选择文件3</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_2">
+              <property name="placeholderText">
+               <string>将显示选择文件路径</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_8">
+              <property name="text">
+               <string>获取3</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPlainTextEdit" name="plainTextEdit">
+            <property name="placeholderText">
+             <string>将显示所有输出文件路径</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="Line" name="line_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
