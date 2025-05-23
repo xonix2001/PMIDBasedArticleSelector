@@ -3,6 +3,9 @@
 </div>
 
 # PMIDBasedArticleSelector 使用指南
+##Update 2025/5/24\
+2.0 and 2.1 uploaded--- Set up the environment first, then run PMIDBasedArticleSelector.py to use GUI.
+
 ## 中文说明
 
 1. **下载或克隆代码：**  
