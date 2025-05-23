@@ -37,13 +37,13 @@ QLabel {
      <item>
       <widget class="QGroupBox" name="groupBox_config">
        <property name="title">
-        <string>全局配置</string>
+        <string>config</string>
        </property>
        <layout class="QFormLayout" name="formLayout_config">
         <item row="0" column="0">
          <widget class="QLabel" name="label_cfg_email">
           <property name="text">
-           <string>PubMed 邮箱：</string>
+           <string>PubMed e-mail：</string>
           </property>
          </widget>
         </item>
@@ -63,7 +63,7 @@ QLabel {
         <item row="2" column="0">
          <widget class="QLabel" name="label_cfg_trans_base">
           <property name="text">
-           <string>翻译 API Base：</string>
+           <string>Gpt API Base：</string>
           </property>
          </widget>
         </item>
@@ -73,7 +73,7 @@ QLabel {
         <item row="3" column="0">
          <widget class="QLabel" name="label_cfg_trans_key">
           <property name="text">
-           <string>翻译 API Key：</string>
+           <string>Gpt API Key：</string>
           </property>
          </widget>
         </item>
@@ -83,33 +83,18 @@ QLabel {
         <item row="4" column="0">
          <widget class="QLabel" name="label_cfg_trans_model">
           <property name="text">
-           <string>翻译模型：</string>
+           <string>Gpt model：</string>
           </property>
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QComboBox" name="comboBox_cfg_trans_model">
-          <item>
-           <property name="text">
-            <string>gpt-4o-mini</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>gpt-4</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>gpt-3.5-turbo</string>
-           </property>
-          </item>
+         <widget class="QLineEdit" name="lineEdit_cfg_trans_model">
          </widget>
         </item>
         <item row="5" column="1">
          <widget class="QPushButton" name="pushButton_save_config">
           <property name="text">
-           <string>保存配置</string>
+           <string>save config</string>
           </property>
          </widget>
         </item>

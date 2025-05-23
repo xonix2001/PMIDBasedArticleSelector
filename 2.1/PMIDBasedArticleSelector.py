@@ -2,8 +2,8 @@
 
 import sys
 import json
-import os
-import time
+#import os
+#import time
 from pathlib import Path
 from datetime import datetime
 
@@ -16,7 +16,7 @@ from PySide6.QtGui import QTextCursor, QIcon
 
 from base import PubMedDataProcessorBase
 from sort import PmidFilter
-from extend_test import PubMedDataProcessorExtended
+#from extend_test import PubMedDataProcessorExtended
 from translator import translator
 from thread_worker import ExtendedWorker
 # 配置文件路径
@@ -89,10 +89,7 @@ class MainWindow(QWidget):
                 self.ui.lineEdit_cfg_pubmed_key.setText(cfg.get("pubmed_api_key",""))
                 self.ui.lineEdit_cfg_trans_base.setText(cfg.get("translator_api_base",""))
                 self.ui.lineEdit_cfg_trans_key.setText(cfg.get("translator_api_key",""))
-                model = cfg.get("translator_model","gpt-4o-mini")
-                idx = self.ui.comboBox_cfg_trans_model.findText(model)
-                if idx>=0:
-                    self.ui.comboBox_cfg_trans_model.setCurrentIndex(idx)
+                self.ui.lineEdit_cfg_trans_model.setText(cfg.get("translator_model","gpt-4o-mini"))
             except Exception as e:
                 QMessageBox.warning(self, "配置加载失败", str(e))
 
@@ -102,7 +99,7 @@ class MainWindow(QWidget):
             "pubmed_api_key": self.ui.lineEdit_cfg_pubmed_key.text().strip(),
             "translator_api_base": self.ui.lineEdit_cfg_trans_base.text().strip(),
             "translator_api_key": self.ui.lineEdit_cfg_trans_key.text().strip(),
-            "translator_model": self.ui.comboBox_cfg_trans_model.currentText(),
+            "translator_model": self.ui.lineEdit_cfg_trans_model.text().strip(),
         }
         try:
             CONFIG_PATH.write_text(json.dumps(cfg, ensure_ascii=False, indent=2), "utf-8")
@@ -194,7 +191,7 @@ class MainWindow(QWidget):
         # 更新翻译参数
         translator.api_base = self.ui.lineEdit_cfg_trans_base.text().strip()
         translator.api_key  = self.ui.lineEdit_cfg_trans_key.text().strip()
-        translator.model    = self.ui.comboBox_cfg_trans_model.currentText()
+        translator.model    = self.ui.lineEdit_cfg_trans_model.text().strip()
 
         print(f"[{datetime.now():%H:%M:%S}] 开始模块3：摘要 & 链接爬取")
 
