@@ -3,9 +3,10 @@ def translator(text):
     """
     使用 OpenAI API 进行翻译，将英文文本翻译为中文。
     """
-    openai.api_key = translator.api_key
-    openai.api_base = translator.api_base
+
     try:
+        openai.api_key = translator.api_key
+        openai.api_base = translator.api_base
         response = openai.ChatCompletion.create(
             model=translator.model,
             messages=[
