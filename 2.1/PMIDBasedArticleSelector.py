@@ -120,6 +120,12 @@ class MainWindow(QWidget):
             return
         email = self.ui.lineEdit_cfg_email.text().strip()
         api_key = self.ui.lineEdit_cfg_pubmed_key.text().strip()
+        
+        # 更新翻译参数
+        translator.api_base = self.ui.lineEdit_cfg_trans_base.text().strip()
+        translator.api_key  = self.ui.lineEdit_cfg_trans_key.text().strip()
+        translator.model    = self.ui.lineEdit_cfg_trans_model.text().strip()
+
         processor = PubMedDataProcessorBase(email, api_key)
         print(f"[{datetime.now():%H:%M:%S}] 开始模块1：基础信息爬取")
         try:
